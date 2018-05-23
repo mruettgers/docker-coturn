@@ -4,7 +4,8 @@ MAINTAINER Michael Ruettgers <michael@ruettgers.eu>
 ENV DEBIAN_FRONTEND noninteractive
 
 ENV PACKAGES \
-  coturn
+  coturn \
+  telnet
 
 RUN set -xe && \
   apt-get -y update && \
@@ -13,4 +14,6 @@ RUN set -xe && \
 
 EXPOSE 3478
 
-CMD ["/usr/bin/turnserver"]
+COPY ./files/ /
+
+ENTRYPOINT ["/docker/docker-entrypoint.sh"]
