@@ -11,4 +11,6 @@ RUN set -xe && \
   apt-get install -y ${PACKAGES} && \
   apt-get clean
 
+EXPOSE 3478
+
 CMD ["/usr/bin/turnserver"]
